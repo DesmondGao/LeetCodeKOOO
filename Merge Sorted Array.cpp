@@ -1,4 +1,5 @@
 
+//method 1:
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
@@ -24,5 +25,26 @@ public:
          nums1[merge_index--]=nums2[nums2_index--];
      }
      return;
+    }
+};
+
+//method 2:--->可读性比method 1好
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+   //采用更好的理解方式-->read and write下标--->读写操作
+   for(int nums1r=m-1,nums2r=n-1,wi=m+n-1;nums2r>=0;--wi)
+   {
+    //采用for循环可以将nums2的所有元素扫进目标数组，而不需要进行剩余判断
+    //谁大把谁放进去
+    if(nums1r>=0&&nums1[nums1r]>nums2[nums2r])
+    {
+        nums1[wi]=nums1[nums1r--];
+    }else//即使nums1没有元素，也是可以运算的
+    {
+        nums1[wi]=nums2[nums2r--];
+    }
+   }
+    return;
     }
 };
