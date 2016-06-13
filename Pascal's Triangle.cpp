@@ -1,3 +1,5 @@
+//杨辉三角每行的基都为1，所需要做的就是对每行该改造的地方进行改造-->特别是从第三行开始
+//如果不好理解，可以将每行手写完然后理解
 class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
