@@ -38,3 +38,38 @@ public:
         }
     }
 };
+
+//基本方法--->但没有AC
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        if(nums.size()==0)
+        {
+            return NULL;
+        }else if(nums.size()==1)
+        {
+            return nums[0];
+        }
+        int major=nums[0];
+        for(int i=0;i<nums.size();i++)
+        {
+            int voters=1;//计数器
+            for(int j=i+1;j<nums.size();j++)
+            {
+                if(nums[i]==nums[j])
+                {
+                    voters++;
+                }
+            }
+            if(voters>nums.size()/2)
+            {
+                major=nums[i];
+                break;
+            }else
+            {
+                return NULL;
+            }
+        }
+     return major;
+    }
+};
