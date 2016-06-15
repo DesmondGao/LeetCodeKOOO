@@ -73,3 +73,12 @@ public:
      return major;
     }
 };
+//mehtod 3
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        //两行代码的事
+        sort(nums.begin(),nums.end());
+        return nums[nums.size()/2];
+    }
+};
