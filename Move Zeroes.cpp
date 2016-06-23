@@ -20,3 +20,27 @@ public:
         }
     }
 };
+method 2:
+//这种方法要有一定的经验，才能想出来
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int timer=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(0==nums[i])
+            {
+                timer++;
+            }else
+            {
+                nums[i-timer]=nums[i];
+            }
+        }
+        while(timer!=0)
+        {
+            nums[nums.size()-timer]=0;
+            timer--;
+        }
+        return;
+    }
+};
